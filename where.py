@@ -446,6 +446,7 @@ def pollution_func():
             ),
         )
 
+
 def get_rank(rank):
     if '+' in rank:
         return int(rank[0:rank.find('+')])
@@ -455,9 +456,9 @@ def get_rank(rank):
         r1 = int(rank[0:rank.find('–')])
         r2 = int(rank[rank.find('–')+1:])
         return (r1+r2)/2.0
-    elif rank.find('=') < 0 and rank.find('–')< 0:
+    elif rank.find('=') < 0 and rank.find('–') < 0:
         return int(rank)
-    
+
 
 values = {
     "purchasing_power_index": 200,
@@ -526,8 +527,8 @@ if __name__ == "__main__":
             data = response.json()
             try:
                 rankings = []
-                for i,country in enumerate(uni_countries):
-                    if country==value:
+                for i, country in enumerate(uni_countries):
+                    if country == value:
                         rankings.append((get_rank(uni_rankings[i]), uni_unis[i], uni_rankings[i]))
                 rankings.sort()
                 total_years = int(YOUR_AGE) + data["remaining_life_expectancy"]
