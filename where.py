@@ -449,7 +449,6 @@ def pollution_func():
         )
 
 
-
 def get_rank(rank):
     if '+' in rank:
         return int(rank[0:rank.find('+')])
@@ -462,6 +461,7 @@ def get_rank(rank):
     elif rank.find('=') < 0 and rank.find('–') < 0:
         return int(rank)
 
+
 def cached_request(api_url):
     """Checks if the data for the url is in the dbm cache and returns the result.
     If not, requests it, stores in the database and returns."""
@@ -473,7 +473,6 @@ def cached_request(api_url):
         data = response.json()
         db[api_url] = data
     return data
-
 
 
 values = {
